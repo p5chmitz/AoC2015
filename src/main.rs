@@ -26,6 +26,7 @@ pub fn aoc1501_1() {
     //Parses file and prints counter
     let mut counter = 0;
     let mut p = 1;
+    let mut cherry = false;
     for character in input.chars() {
         if character == '(' {
             counter += 1;
@@ -33,9 +34,14 @@ pub fn aoc1501_1() {
         if character == ')' {
             counter -= 1;
         }
-        if counter == -1 {
-            println!("The elevator goes into the basement on the {} iteration.", p);
-            break
+        if cherry == false {
+            if counter == -1 {
+                println!(
+                    "The elevator first goes into the basement on the {} iteration.",
+                    p
+                );
+                cherry = true;
+            }
         }
         p += 1;
     }
