@@ -77,19 +77,20 @@ pub fn runner() -> (i32, i32) {
 
 /** Parses file and prints counter */
 pub fn core_logic(s: String) -> (i32, i32) {
-    // Pushes each input line to a vector index as a referenced slice
+    // Pushes each input line to a vector
     let mut string_vec: Vec<&str> = Vec::new();
     for line in s.lines() {
         string_vec.push(line)
     };
-
-    // Parses each vector reference 
+    
+    // Handles each line of the reference slice vector
     let delimiter = "x";
     let mut total_area = 0;
     let mut total_length = 0;
     for index in string_vec.iter() {
-        // Creates a temporary vector to hold dimensions
-        // and calculate_areas total surface area
+        // Creates a temporary vector to hold dimensions,
+        // uses the temp vector to build a Package,
+        // calculates the total surface area of the package,
         let mut temp_v = Vec::new();
         for i in index.split(delimiter) {
             let num: i32 = i.parse().unwrap();
