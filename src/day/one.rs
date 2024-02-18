@@ -23,7 +23,7 @@ mod tests {
 
 }
 
-pub fn runner() {
+pub fn runner() -> (i32, i32) {
     //Reads input from file
     //NOTE: Execute cargo run from project root (not /src/), otherwise
     //a file not found error may occur.
@@ -43,7 +43,8 @@ pub fn runner() {
             eprintln!("Error opening file: {}", err);
         }
     }
-    core_logic(input);
+    let result = core_logic(input);
+    result
 }
 
 /** Parses file and prints counter */
@@ -61,15 +62,12 @@ pub fn core_logic(input: String) -> (i32, i32) {
         }
         if basement == false {
             if counter == -1 {
-                println!("The elevator first goes into the basement on the {} iteration.", counter_to_basement);
                 basement = true;
                 return_tuple.0 = counter_to_basement;
-
             }
         }
         counter_to_basement += 1;
     }
-    println!("The resultant floor is: {}", counter);
     return_tuple.1 = counter;
     return return_tuple;
 }
