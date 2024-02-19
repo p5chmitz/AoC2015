@@ -31,11 +31,12 @@ pub fn runner() -> (i32, i32) {
     }
     let test_data = String::from(">^^v^");
     //let total = core_logic(test_data);
-    let total = core_logic(input);
+    let mut total = part_one(&input);
+    total.1 = part_two(&input);
     total
 }
 
-pub fn core_logic(s: String) -> (i32, i32) {
+pub fn part_one(s: &str) -> (i32, i32) {
     // Pushes each input char to a vector,
     let mut string_as_vec: Vec<char> = Vec::new();
     for char in s.chars() {
@@ -50,6 +51,43 @@ pub fn core_logic(s: String) -> (i32, i32) {
     //    println!();
     //}
     //println!("=>");
+
+    // Santa's path
+    let mut history: Vec<(i32, i32)> = Vec::new();
+    let mut location = (0, 0);
+    history.push(location); // Gotta start somewhere!
+    let mut char_index = 0;
+    while char_index < string_as_vec.len() {
+        if string_as_vec[char_index] == '>' {
+            location.0 += 1;
+        }
+        if string_as_vec[char_index] == '<' {
+            location.0 -= 1;
+        }
+        if string_as_vec[char_index] == '^' {
+            location.1 += 1;
+        }
+        if string_as_vec[char_index] == 'v' {
+            location.1 -= 1;
+        }
+        history.push(location);
+        char_index += 1;
+    }
+
+    let mut unique = HashMap::new();
+    for location in &history {
+        *unique.entry(location).or_insert(0) += 1;
+    }
+
+    ((unique.len() as i32), 0)
+}
+
+pub fn part_two(s: &str) -> i32 {
+    // Pushes each input char to a vector,
+    let mut string_as_vec: Vec<char> = Vec::new();
+    for char in s.chars() {
+        string_as_vec.push(char)
+    };
 
     // Santa's path
     let mut location = (0, 0);
@@ -69,12 +107,11 @@ pub fn core_logic(s: String) -> (i32, i32) {
             location.1 -= 1;
         }
         history.push(location);
-        char_index += 2;
+        char_index += 1;
     }
 
     // Robo-Santa's path
     let mut location = (0, 0);
-    let mut history: Vec<(i32, i32)> = Vec::new();
     let mut char_index = 1;
     while char_index < string_as_vec.len() {
         if string_as_vec[char_index] == '>' {
@@ -93,13 +130,12 @@ pub fn core_logic(s: String) -> (i32, i32) {
         char_index += 2;
     }
 
-
     let mut unique = HashMap::new();
     for location in &history {
         *unique.entry(location).or_insert(0) += 1;
     }
-    println!("{:?}", unique);
+    //println!("{:?}", unique);
 
-    ((unique.len() as i32 + 1), 0)
+    unique.len() as i32 
 }
 
