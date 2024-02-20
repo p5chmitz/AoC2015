@@ -6,7 +6,7 @@ mod tests {
     use super::*;
 
     #[test]
-    /** Asserts that the stopping floor is 4 */ 
+    /** Asserts that the stopping floor is 4 */
     fn one() {
         let input = String::from("(()()(((()");
         let tuple: (i32, i32) = (0, 4);
@@ -14,13 +14,12 @@ mod tests {
     }
 
     #[test]
-    /** Asserts the interation of the first negative floor is 4 */ 
+    /** Asserts the interation of the first negative floor is 4 */
     fn two() {
         let input = String::from("(()()(((()))))())");
         let tuple: (i32, i32) = (17, -1);
         assert_eq!(core_logic(input), tuple);
     }
-
 }
 
 pub fn runner() -> (i32, i32) {
@@ -49,7 +48,7 @@ pub fn runner() -> (i32, i32) {
 
 /** Parses file and prints counter */
 pub fn core_logic(input: String) -> (i32, i32) {
-    let mut return_tuple: (i32, i32) = (0,0);
+    let mut return_tuple: (i32, i32) = (0, 0);
     let mut counter = 0;
     let mut counter_to_basement = 1;
     let mut basement = false;
@@ -71,4 +70,3 @@ pub fn core_logic(input: String) -> (i32, i32) {
     return_tuple.1 = counter;
     return return_tuple;
 }
-
