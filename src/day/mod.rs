@@ -1,4 +1,5 @@
-pub mod four;
-pub mod one;
-pub mod three;
-pub mod two;
+pub mod day01;
+pub mod day02;
+pub mod day03;
+pub mod day04;
+pub mod day05;
