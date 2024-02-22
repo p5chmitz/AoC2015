@@ -1,3 +1,5 @@
+#![allow(warnings)]
+
 use std::collections::HashMap;
 use std::fs::File;
 use std::io::{Read, Write};
@@ -43,7 +45,7 @@ fn unique(v: Vec<(i32, i32)>) -> i32 {
     unique.len() as i32
 }
 
-pub fn location_history(v: &Vec<char>) -> Vec<(i32, i32)> {
+fn location_history(v: &Vec<char>) -> Vec<(i32, i32)> {
     // Prints a matrix
     //for i in &matrix {
     //    for e in i {
@@ -140,6 +142,5 @@ mod tests {
         let routes: (Vec<char>, Vec<char>) = path_splitter(&v);
         let combined = path_concatenator(routes);
         assert_eq!(unique(combined), 11);
-
     }
 }

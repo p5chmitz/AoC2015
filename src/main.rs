@@ -1,5 +1,5 @@
 mod day;
-use day::{one, three, two};
+use day::{four, one, three, two};
 
 fn main() {
     println!("My hacky attempts at Advent of Code™ 2015! 🎄🎁\nhttps://adventofcode.com/2015");
@@ -21,4 +21,10 @@ fn main() {
     let d3 = three::runner();
     println!("\tHouses that get at least one present: {}", d3.0);
     println!("\tUnique hits with Robo Santa™: {}", d3.1);
+
+    println!("Day 4:");
+    let d4 = four::runner();
+    println!("\tKey suffix for 5 0s: {}", d4.0);
+    println!("\tKey suffix for 6 0s: {}", d4.1);
+    //println!("\tUnique hits with Robo Santa™: {}", d3.1);
 }
