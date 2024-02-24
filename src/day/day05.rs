@@ -43,8 +43,5 @@ mod tests {
 
     #[test]
     /** Tests the package calculator */
-    fn first() {
-
-    }
+    fn d05_1() {}
 }
-

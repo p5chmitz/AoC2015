@@ -1,27 +1,6 @@
 use std::fs::File;
 use std::io::Read;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    /** Asserts that the stopping floor is 4 */
-    fn one() {
-        let input = String::from("(()()(((()");
-        let tuple: (i32, i32) = (0, 4);
-        assert_eq!(core_logic(input), tuple);
-    }
-
-    #[test]
-    /** Asserts the interation of the first negative floor is 4 */
-    fn two() {
-        let input = String::from("(()()(((()))))())");
-        let tuple: (i32, i32) = (17, -1);
-        assert_eq!(core_logic(input), tuple);
-    }
-}
-
 pub fn runner() -> (i32, i32) {
     //Reads input from file
     //NOTE: Execute cargo run from project root (not /src/), otherwise
@@ -70,3 +49,25 @@ pub fn core_logic(input: String) -> (i32, i32) {
     return_tuple.1 = counter;
     return return_tuple;
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    /** Asserts that the stopping floor is 4 */
+    fn d01_1() {
+        let input = String::from("(()()(((()");
+        let tuple: (i32, i32) = (0, 4);
+        assert_eq!(core_logic(input), tuple);
+    }
+
+    #[test]
+    /** Asserts the interation of the first negative floor is 4 */
+    fn d01_2() {
+        let input = String::from("(()()(((()))))())");
+        let tuple: (i32, i32) = (17, -1);
+        assert_eq!(core_logic(input), tuple);
+    }
+}
+

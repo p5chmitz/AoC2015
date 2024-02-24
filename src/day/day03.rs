@@ -111,8 +111,7 @@ mod tests {
     use super::*;
 
     #[test]
-    /** Tests the package calculator */
-    fn first() {
+    fn d03_1() {
         let v: Vec<char> = vec!['>'];
         let vals = unique(location_history(&v));
         assert_eq!(vals, 2);
@@ -126,8 +125,7 @@ mod tests {
         assert_eq!(vals, 2);
     }
     #[test]
-    /** Tests the package calculator */
-    fn second() {
+    fn d03_2() {
         let v: Vec<char> = vec!['^', 'v'];
         let routes: (Vec<char>, Vec<char>) = path_splitter(&v);
         let combined = path_concatenator(routes);

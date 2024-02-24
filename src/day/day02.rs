@@ -1,28 +1,6 @@
 use std::fs::File;
 use std::io::Read;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    /** Tests the package calculator */
-    fn d2_1_1() {
-        let v = vec![2, 3, 4];
-        let p = Package::build(&v);
-        let result = Package::calculate_area(&p);
-        assert_eq!(result, 58);
-    }
-    #[test]
-    /** Tests the package calculator */
-    fn d2_1_2() {
-        let v = vec![1, 1, 10];
-        let p = Package::build(&v);
-        let result = Package::calculate_area(&p);
-        assert_eq!(result, 43);
-    }
-}
-
 struct Package {
     l: i32,
     w: i32,
@@ -111,3 +89,26 @@ pub fn core_logic(s: String) -> (i32, i32) {
     }
     (total_area, total_length)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    /** Tests the package calculator */
+    fn d02_1() {
+        let v = vec![2, 3, 4];
+        let p = Package::build(&v);
+        let result = Package::calculate_area(&p);
+        assert_eq!(result, 58);
+    }
+    #[test]
+    /** Tests the package calculator */
+    fn d02_2() {
+        let v = vec![1, 1, 10];
+        let p = Package::build(&v);
+        let result = Package::calculate_area(&p);
+        assert_eq!(result, 43);
+    }
+}
+
