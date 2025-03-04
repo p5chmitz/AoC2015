@@ -23,8 +23,13 @@ fn main() {
     println!("\tUnique hits with Robo Santa™: {}", d3.1);
 
     println!("Day 4:");
-    let d4 = day04::runner();
-    println!("\tKey suffix for 5 0s: {}", d4.0);
-    println!("\tKey suffix for 6 0s: {}", d4.1);
-    //println!("\tUnique hits with Robo Santa™: {}", d3.1);
+    println!("\t(Runner takes too long to process)");
+    //let d4 = day04::runner();
+    //println!("\tKey suffix for 5 0s: {}", d4.0);
+    //println!("\tKey suffix for 6 0s: {}", d4.1);
+
+    println!("Day 5:");
+    let d5 = day05::runner();
+    println!("\tNumber of \"nice\" strings: {}", d5.0);
+    println!("\tNumber of \"_really_ nice\" strings: {}", d5.1);
 }
